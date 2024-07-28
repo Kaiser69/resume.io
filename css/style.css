@@ -885,6 +885,16 @@ body.mobile-nav-active #mobile-nav-toggle {
     background: #25d8fc;
 }
 
+  #confirmationMessage {
+        display: none;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #d4edda;
+        background-color: #d4edda;
+        color: #155724;
+        border-radius: 5px;
+        cursor: pointer;
+      }
 
 /*--------------------------------------------------------------
 # google map
