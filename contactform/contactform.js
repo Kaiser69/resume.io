@@ -1,11 +1,10 @@
-
- document.getElementById('contactForm').addEventListener('submit', function(event) {
+document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
             
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
 
-            fetch('https://formspree.io/f/mrbzpykg', {
+            fetch('https://formspree.io/YOUR_FORM_ID', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -16,8 +15,13 @@
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
-                    document.getElementById('confirmationMessage').style.display = 'block';
+                    const confirmationMessage = document.getElementById('confirmationMessage');
+                    confirmationMessage.style.display = 'block';
                     document.getElementById('contactForm').reset();
+
+                    confirmationMessage.addEventListener('click', function() {
+                        confirmationMessage.style.display = 'none';
+                    });
                 } else {
                     alert('An error occurred. Please try again.');
                 }
